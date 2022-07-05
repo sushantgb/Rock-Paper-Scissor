@@ -1,8 +1,10 @@
+//main game play function
 const gamePlay = () =>{
     let playerScore = 0;
     let compScore = 0;
     let moves = 0;
-
+    
+    //function to start the game
     const startGame = () =>{
         let rockOptn = document.querySelector(".rock");
         let paperOptn = document.querySelector(".paper");
@@ -24,6 +26,7 @@ const gamePlay = () =>{
                 name: "scissor"
             }
         ]
+        //Event function for each selected option
         playerOptions.forEach(event =>{
             event.addEventListener('click', ()=>{
                 console.log("event : "+ event.title);
@@ -36,13 +39,17 @@ const gamePlay = () =>{
                 console.log("Computer Choice : "+computerChoiceText);
                 document.querySelector(".computer-choice-image").src = computerchoiceImage;
                 results(event.title, computerChoiceText);
-
+    
+                //when all moves exhaust
                 if(moves == 5){
-                    gameOver();
+                    setTimeout(() => {
+                        gameOver();
+                    }, 1000);
                 }
             })
         })
     }
+    //function to verify who won the round
     const results = (player, computer) =>{
         let res = document.querySelector(".instant-result");
         let playerScoreVal = document.querySelector(".player-count");
@@ -85,6 +92,7 @@ const gamePlay = () =>{
             }
         }
     }
+    //final display of score and winner
     const gameOver = () => {
         let resultContainer = document.querySelector(".result-container");
         let winner = document.querySelector(".winner");
@@ -118,7 +126,7 @@ const gamePlay = () =>{
             window.location.reload();
         })
     }
-    startGame();
+    startGame(); //start function call
 }
 
-gamePlay();
+gamePlay(); //main function call
