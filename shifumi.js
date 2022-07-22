@@ -62,6 +62,10 @@ const gamePlay = () =>{
 
                 //when no moves left
                 if(moves == 0){
+                    //disabling buttons
+                    rockOptn.disabled = true;
+                    paperOptn.disabled = true;
+                    scissorOptn.disabled = true;
                     //calling gameover function with a delay of  1sec
                     setTimeout(() => {
                         gameOver();
