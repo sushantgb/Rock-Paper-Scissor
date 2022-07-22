@@ -74,6 +74,9 @@
     opacity: 0.6;
     cursor: pointer;
 }
+.play-display button:disabled{
+    cursor: default;
+}
 .play-display img{
     width: 3em;
     height: 3em;
